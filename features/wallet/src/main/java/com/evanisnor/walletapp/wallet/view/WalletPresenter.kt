@@ -19,7 +19,7 @@ val amountOwed = WalletCalculation { wallet ->
   wallet.cards
     .filterIsInstance<Card.CreditCard>()
     .map { it.balance }
-    .reduce { acc, balance -> acc + balance }
+    .fold(0.0) { acc, balance -> acc + balance }
 }
 
 /**
@@ -29,7 +29,7 @@ val totalCredit = WalletCalculation { wallet ->
   wallet.cards
     .filterIsInstance<Card.CreditCard>()
     .map { it.limit }
-    .reduce { acc, limit -> acc + limit }
+    .fold(0.0) { acc, limit -> acc + limit }
 }
 
 /**

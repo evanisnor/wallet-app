@@ -1,9 +1,7 @@
 package com.evanisnor.walletapp.wallet.view
 
-
 import com.evanisnor.walletapp.wallet.data.Card
 import com.evanisnor.walletapp.wallet.data.ExampleWalletRepository
-import java.time.LocalDate
 
 
 /**
@@ -11,24 +9,6 @@ import java.time.LocalDate
  */
 fun interface Transform<T, R> {
   operator fun invoke(data: T) : R
-}
-
-/**
- * Transform a [Card.CreditCard] into a [WalletState.CreditCard] for display on screen
- */
-val buildCreditCardState = Transform<Card.CreditCard, WalletState.CreditCard> {
-  val cardNumberShort = it.number.substring(0 until 4)
-
-  WalletState.CreditCard(
-    issuer = when (cardNumberShort) {
-      "2143" -> "WunderCard"
-      "8943" -> "CorpBank of America XTra Cash"
-      else -> "Unknown"
-    },
-    numberRedacted = "$cardNumberShort********",
-    balance = it.balance,
-    isPaymentDueSoon = LocalDate.now().until(it.nextStatementOn).days <= 7
-  )
 }
 
 /**

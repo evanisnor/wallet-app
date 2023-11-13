@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FunctionalAndroid"
+rootProject.name = "WalletApp"
 include(":app")

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.evanisnor.functionalandroid"
+    namespace = "com.evanisnor.walletapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.evanisnor.functionalandroid"
+        applicationId = "com.evanisnor.walletapp"
         minSdk = 29
         targetSdk = 34
         versionCode = 1

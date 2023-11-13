@@ -1,4 +1,4 @@
-package com.evanisnor.functionalandroid.ui.theme
+package com.evanisnor.walletapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

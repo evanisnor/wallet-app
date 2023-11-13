@@ -32,11 +32,7 @@ class WalletPresenter(
         buildCreditCardState(it)
       },
       giftCards = wallet.cards.filterIsInstance<Card.GiftCard>().map {
-        WalletState.GiftCard(
-          vendorName = it.vendorName,
-          amount = it.amount,
-          isHidden = it.amount < 1
-        )
+        buildGiftCardState(it)
       }
 
     )

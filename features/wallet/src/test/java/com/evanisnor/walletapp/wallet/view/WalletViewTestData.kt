@@ -27,15 +27,17 @@ object WalletViewTestData {
     nextStatementOn = LocalDate.of(2023, 11, 30),
   )
 
+  val giftCard = Card.GiftCard(
+    vendorName = "Bamazone.com",
+    amount = 50.0,
+  )
+
   val wallet = Wallet(
     ownerName = "James",
     cashAmount = 553.82,
     cards = listOf(
       creditCardA,
-      Card.GiftCard(
-        vendorName = "Bamazone.com",
-        amount = 50.0,
-      )
+      giftCard,
     )
   )
 

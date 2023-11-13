@@ -48,3 +48,14 @@ val buildCreditCardState = Transform<Card.CreditCard, WalletState.CreditCard> {
     isPaymentDueSoon = LocalDate.now().until(it.nextStatementOn).days <= 7
   )
 }
+
+/**
+ * Transform a [Card.GiftCard] into a [WalletState.GiftCard] for display on screen
+ */
+val buildGiftCardState = Transform<Card.GiftCard, WalletState.GiftCard> {
+  WalletState.GiftCard(
+    vendorName = it.vendorName,
+    amount = it.amount,
+    isHidden = it.amount < 1
+  )
+}

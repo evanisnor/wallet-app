@@ -5,13 +5,6 @@ import com.evanisnor.walletapp.wallet.data.ExampleWalletRepository
 
 
 /**
- * Functional interface to enable building transforms that can be easily tested and maintained.
- */
-fun interface Transform<T, R> {
-  operator fun invoke(data: T) : R
-}
-
-/**
  * Presenter for the Wallet view. Calling [present] from the View will return an instance of
  * [WalletState] which can then be rendered by the view.
  */

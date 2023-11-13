@@ -20,7 +20,7 @@ sealed interface Card {
    * Represents a Credit Card. Funds represented in the [balance] must be paid by [nextStatementOn].
    */
   data class CreditCard(
-    val number: String,
+    val numberRedacted: String,
     val issuer: String,
     val balance: Double,
     val limit: Double,

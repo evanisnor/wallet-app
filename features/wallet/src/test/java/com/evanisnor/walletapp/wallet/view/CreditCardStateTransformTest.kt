@@ -21,7 +21,7 @@ class CreditCardStateTransformTest {
 
   @Test
   fun `buildCreditCardState - when card is provided - return redacted card number`() {
-    val creditCard = creditCardA.copy(number = "123412341234")
+    val creditCard = creditCardA.copy(numberRedacted = "1234********")
 
     val result = buildCreditCardState(creditCard).numberRedacted
 

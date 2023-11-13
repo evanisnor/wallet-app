@@ -41,11 +41,9 @@ data class WalletState(
  * Transform a [Card.CreditCard] into a [WalletState.CreditCard] for display on screen
  */
 val buildCreditCardState = Transform<Card.CreditCard, WalletState.CreditCard> {
-  val cardNumberShort = it.number.substring(0 until 4)
-
   WalletState.CreditCard(
     issuer = it.issuer,
-    numberRedacted = "$cardNumberShort********",
+    numberRedacted = it.numberRedacted,
     balance = it.balance,
     isPaymentDueSoon = LocalDate.now().until(it.nextStatementOn).days <= 7
   )

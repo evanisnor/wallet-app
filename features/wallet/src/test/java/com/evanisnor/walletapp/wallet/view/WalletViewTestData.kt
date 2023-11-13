@@ -10,7 +10,7 @@ import java.time.LocalDate
 object WalletViewTestData {
 
   val creditCardA = Card.CreditCard(
-    number = "214398649384",
+    numberRedacted = "2143********",
     issuer = "WunderCard",
     balance = 143.22,
     limit = 5000.0,
@@ -19,7 +19,7 @@ object WalletViewTestData {
   )
 
   val creditCardB = Card.CreditCard(
-    number = "983787560921",
+    numberRedacted = "9837********",
     issuer = "CorpBank of America XTra Cash",
     balance = 3245.43,
     limit = 7000.0,

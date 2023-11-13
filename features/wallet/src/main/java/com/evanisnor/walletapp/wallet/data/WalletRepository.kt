@@ -24,7 +24,7 @@ class ExampleWalletRepository : WalletRepository {
       cashAmount = 553.82,
       cards = listOf(
         Card.CreditCard(
-          number = "214398649384",
+          numberRedacted = "2143********",
           issuer = "WunderCard",
           balance = 143.22,
           limit = 5000.0,

@@ -27,7 +27,7 @@ val buildCreditCardState = Transform<Card.CreditCard, WalletState.CreditCard> {
     },
     numberRedacted = "$cardNumberShort********",
     balance = it.balance,
-    isPaymentDueSoon = LocalDate.now().until(it.nextStatementOn).days < 7
+    isPaymentDueSoon = LocalDate.now().until(it.nextStatementOn).days <= 7
   )
 }
 

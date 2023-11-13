@@ -2,7 +2,35 @@ package com.evanisnor.walletapp.wallet.view
 
 import com.evanisnor.walletapp.wallet.data.Card
 import com.evanisnor.walletapp.wallet.data.ExampleWalletRepository
+import com.evanisnor.walletapp.wallet.data.Wallet
 import java.time.LocalDate
+
+/**
+ * Function interface to enable building single-purpose state calculations from [Wallet] data.
+ */
+fun interface WalletCalculation {
+  operator fun invoke(wallet: Wallet) : Double
+}
+
+/**
+ * [WalletCalculation] for calculating the amount of money owed on Credit Cards
+ */
+val amountOwed = WalletCalculation { wallet ->
+  wallet.cards
+    .filterIsInstance<Card.CreditCard>()
+    .map { it.balance }
+    .reduce { acc, balance -> acc + balance }
+}
+
+/**
+ * [WalletCalculation] for calculating the total credit available by Credit Cards
+ */
+val totalCredit = WalletCalculation { wallet ->
+  wallet.cards
+    .filterIsInstance<Card.CreditCard>()
+    .map { it.limit }
+    .reduce { acc, limit -> acc + limit }
+}
 
 /**
  * Presenter for the Wallet view. Calling [present] from the View will return an instance of
@@ -17,18 +45,8 @@ class WalletPresenter(
    */
   fun present(): WalletState {
     val wallet = walletRepository.loadWallet(userId = "user-99")
-
-    val amountOwed =
-      wallet.cards
-        .filterIsInstance<Card.CreditCard>()
-        .map { it.balance }
-        .reduce { acc, balance -> acc + balance }
-
-    val totalCredit =
-      wallet.cards
-        .filterIsInstance<Card.CreditCard>()
-        .map { it.limit }
-        .reduce { acc, limit -> acc + limit }
+    val amountOwed = amountOwed(wallet)
+    val totalCredit = totalCredit(wallet)
 
     val netBalance = wallet.cashAmount - amountOwed
 

@@ -25,6 +25,7 @@ class ExampleWalletRepository : WalletRepository {
       cards = listOf(
         Card.CreditCard(
           number = "214398649384",
+          issuer = "WunderCard",
           balance = 143.22,
           limit = 5000.0,
           expiresOn = LocalDate.of(2025, 3, 22),

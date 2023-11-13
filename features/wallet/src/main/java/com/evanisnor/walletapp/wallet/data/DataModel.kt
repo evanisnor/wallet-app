@@ -21,6 +21,7 @@ sealed interface Card {
    */
   data class CreditCard(
     val number: String,
+    val issuer: String,
     val balance: Double,
     val limit: Double,
     val expiresOn: LocalDate,

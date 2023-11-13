@@ -11,6 +11,7 @@ object WalletViewTestData {
 
   val creditCardA = Card.CreditCard(
     number = "214398649384",
+    issuer = "WunderCard",
     balance = 143.22,
     limit = 5000.0,
     expiresOn = LocalDate.of(2025, 3, 22),
@@ -19,6 +20,7 @@ object WalletViewTestData {
 
   val creditCardB = Card.CreditCard(
     number = "983787560921",
+    issuer = "CorpBank of America XTra Cash",
     balance = 3245.43,
     limit = 7000.0,
     expiresOn = LocalDate.of(2025, 8, 16),

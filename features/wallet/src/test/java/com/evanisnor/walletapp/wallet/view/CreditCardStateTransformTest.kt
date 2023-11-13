@@ -11,30 +11,12 @@ import java.time.LocalDate
 class CreditCardStateTransformTest {
 
   @Test
-  fun `buildCreditCardState - when card starts with 2143 - return issuer WunderCard`() {
-    val creditCard = creditCardA.copy(number = "214387638475")
+  fun `buildCreditCardState - when issuer is WunderCard - return issuer WunderCard`() {
+    val creditCard = creditCardA.copy(issuer = "WunderCard")
 
     val result = buildCreditCardState(creditCard).issuer
 
     assertThat(result).isEqualTo("WunderCard")
-  }
-
-  @Test
-  fun `buildCreditCardState - when card starts with 8943 - return issuer CorpBank of America XTra Cash`() {
-    val creditCard = creditCardA.copy(number = "894387638475")
-
-    val result = buildCreditCardState(creditCard).issuer
-
-    assertThat(result).isEqualTo("CorpBank of America XTra Cash")
-  }
-
-  @Test
-  fun `buildCreditCardState - when card starts with unknown numbers - return Unknown issuer`() {
-    val creditCard = creditCardA.copy(number = "193798473333")
-
-    val result = buildCreditCardState(creditCard).issuer
-
-    assertThat(result).isEqualTo("Unknown")
   }
 
   @Test
